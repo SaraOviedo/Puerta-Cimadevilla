@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex">
+	
+    <title>Puerta Cimadevilla</title>
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $('#reset').click(function(){
+              console.log('click')
+	      $.post("https://shelly-181-eu.shelly.cloud/device/relay/control",
+                        {
+                        channel:"0",
+                        turn:"on",
+                        id:"901506876630",
+                        auth_key:"MzBmNTEwdWlk399F58447C26411E006DC891B760AF8D3EAA0643CEDCE3EFD52F1BF5542998A210AE3062B605725D"
+                        },
+               function(data, status){
+                   if(status!="success"){
+                       alert("Parece que algo va mal, contacte con la propiedad. Something seems to go wrong. Call the property owner");
+                       }
+                    });  
+               });
+        });
+    </script>
+    
+    <style>
+body {
+  font-family: Arial, sans-serif;
+  }
+        
+.block {
+  display: block;
+  width: 95%;
+  border: none;
+  background-color: #04AA6D;
+  padding: 14px 28px;
+  font-size: 30px;
+  cursor: pointer;
+  text-align: center;
+}
+        
+.button{
+    width: 95%;
+    height: 10em;
+    background-color: #04AA6D;
+    color: white;
+    padding: 12px 20px;
+    margin: 20px 20px 20px 20px;
+    border: none;
+    border-radius: 30px;
+    font-size: 50px;
+    cursor: pointer;
+    float: left;
+    margin-top: 6em;
+
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+</style>
+    
+</head>
+<body>
+    <p>
+      <div id = "reset">
+          <button class="button" class="block">Open entrance | Abrir portal</button>
+        </div>
+    </p>
+</body>
+</html>
